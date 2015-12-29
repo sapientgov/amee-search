@@ -1,0 +1,113 @@
+#drug-search {
+    padding-bottom: 30px;
+    .btn-group {
+        .btn {
+            @include border-radius(0);
+            background: none;
+            border: 1px solid #fff;
+            font-size: 12px;
+            &:hover {
+                background: rgba(255, 255, 255, 0.25);
+                color: #fff;
+            }
+        }
+        &.active {
+            .btn {
+                background: $fda-teal;
+                color: #fff;
+                cursor: default;
+            }
+        }
+		.search-all {
+			font-size: 30px;
+		}
+    }
+    #drug-search-results {
+        background-color:#fff;
+        margin-top:-15px;
+        #count-results-list {
+            color:$text-grey;
+            .result-item {
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+            .result-item:hover {
+                background-color: $fda-yellow;
+            }
+        }
+    }
+}
+
+#product-result-list{
+    li{
+        background: #fff;
+        color: $text-black;
+        border-bottom: 1px solid $text-grey;
+        padding: 5px $global-padding;
+        label{
+            font-weight: bold;
+        }
+        &:hover{
+            background: $fda-teal;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    }
+}
+
+
+#dashboard{
+    &.question-nav{
+        padding: 0 15px 15px 15px;
+        .list-group-item{
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 18px;
+            background:none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 15px;
+            @include border-radius(0);
+            &:hover{
+                background: $fda-teal;
+                color: #fff;
+                &:after {
+                  content: "\f138"; 
+                  font-family: FontAwesome;
+                  font-style: normal;
+                  font-weight: normal;
+                  text-decoration: inherit;
+                  position: absolute;
+                  font-size: 24px;
+                  color: #fff;
+                  top: 12px;
+                  right: 15px;
+                  margin: 0;
+                  z-index: 1;
+                }
+            }
+        }
+    }
+    
+}
+
+#drug-detail{
+    #drug-overview{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid #fff;
+        li{
+            min-height: 60px;
+            display:block;
+            border-bottom: 1px solid #fff;
+            padding: 10px 15px;
+            font-size: 24px;
+            font-weight: bold;
+            &:last-child{
+                border-bottom: 0 none #fff;
+            }
+        }
+    }
+}
