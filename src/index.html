@@ -19,6 +19,12 @@
             <div id="container-main" class="container">
                 <div class="full-width clearfix" class="col-xs-12">
                     <h1>AMEE Company Search</h1>
+                    <p>
+                        The AMEE Company Search tool allows you to find company details and the AMEE Score for any company in AMEE's dataset. For more information on the AMEE Score visit <a href="https://www.amee.com/score" style="color: #fdcc4c" target="_blank">https://www.amee.com/score</a>.
+                    </p>
+                    <p>
+                        Enter the company name into the search box and select the desired company from the result list to view the AMEE score. 
+                    </p>
                 </div>
                 <div class="row" id="split-container">
                     
@@ -72,6 +78,18 @@
             <% if(line_of_business !== null && line_of_business !== "") { %>
                 <h3>Line of Business</h3>
                 <p><%- line_of_business %></p>
+            <% } %>
+            <% if(typeof(emps_formatted) !== "undefined") { %>
+                <h3>Total Employees</h3>
+                <p><%- emps_formatted %></p>
+            <% } %>
+            <% if(typeof(sales_formatted) !== "undefined") { %>
+                <h3>Annual Sales</h3>
+                <p><%- sales_formatted %></p>
+            <% } %>
+            <% if(emissions_total_tco2e !== null) { %>
+                <h3>Emissions</h3>
+                <p><%- emissions_total_tco2e %> tCO2e (<%- emissions_status %>)</p>
             <% } %>
         </div>
 

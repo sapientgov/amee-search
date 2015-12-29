@@ -4,6 +4,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 var _ = require('underscore');
+var accounting = require('accounting');
 
 var MapModuleView = require('../location/mapModuleView');
 
@@ -16,6 +17,15 @@ var CompanyDetailsView = Backbone.View.extend({
         this.template = _.template($('#company-details').html());
     },
     render: function() {
+        
+        //format sales and employee numbers
+        if(typeof this.result.annual_sales_local !== 'undefined' && this.result.annual_sales_local !== null) {
+            this.result.sales_formatted = accounting.formatNumber(this.result.annual_sales_local);
+        }
+        if(typeof this.result.employees_total !== 'undefined' && this.result.employees_total !== null) {
+            this.result.emps_formatted = accounting.formatNumber(this.result.employees_total);
+        }
+        
         this.$el.html(this.template(this.result)).show();
         
         //setup map

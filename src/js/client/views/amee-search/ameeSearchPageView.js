@@ -33,8 +33,6 @@ var AmeeSearchPageView = Backbone.View.extend({
 	//This function is called when the user selects a company in the autopopulate search dropdown
     chooseResult: function(selection, count) {
         
-        //TODO: Update search field
-        
         var view = new CompanyDetailsView({
             result: selection
         });
