@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AMEE Search</title>
+    <link href="css/appstyles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header role="banner">
+        <nav class="navbar navbar-default" id="app-header" role="navigation"></nav>
+    </header>
+
+    <main id="content" role="main">
+        <section>
+            <div id="container-main" class="container">
+                <div class="full-width clearfix" class="col-xs-12">
+                    <h1>AMEE Company Search</h1>
+                </div>
+                <div class="row" id="split-container">
+                    
+                    <!-- main content section -->
+                    <div id="primary-content" class="col-xs-12">
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main> <!-- /main-content -->
+
+    <!-- templates -->
+    <script type="text/template" id="drug-search-template">
+        <div id="drug-search">
+            <div class="form-group boxed-input">
+                <label for="ndc" class="sr-only">company name entry</label>
+				
+				<input type="text" name="brand-name" placeholder="Company Name" autocomplete="off" />
+            </div>   
+			
+			<div id="drug-search-results" style="position:relative;top:-5px;z-index:100;">
+                <ul id="count-results-list">
+                </ul>
+			</div>
+			
+            <div id="product-results" style="display:none">
+                <p><span id="multi_results_text" value=""></span></p>
+                <ul id="product-result-list"></ul>
+            </div>
+        </div>
+    </script>
+    
+    <script type="text/template" id="company-details">
+        <div class="fluid-container">
+        <h2><%- name %></h2>
+        <div class="col-xs-12 col-sm-8" style="padding-left: 0">
+            <% if(street_address_1 !== null) { %>
+                <h3>Address</h3>
+                <p>
+                    <%- street_address_1 %>
+                    <% if(street_address_2 !== null) { %><br /><%- street_address_2 %><% } %>
+                    <% if(street_address_3 !== null) { %><br /><%- street_address_3 %><% } %>
+                    <% if(street_address_4 !== null) { %><br /><%- street_address_4 %><% } %>
+                </p>
+            <% } %>
+            <% if(city !== null) { %>
+                <h3>City</h3>
+                <p><%- city %></p>
+            <% } %>
+            <% if(line_of_business !== null && line_of_business !== "") { %>
+                <h3>Line of Business</h3>
+                <p><%- line_of_business %></p>
+            <% } %>
+        </div>
+
+        <div class="col-xs-12 col-sm-4" style="text-align:center;">
+            <h3>AMEE Score</h3>
+            <img class="score-icon" src="<%- amee_industry_score_icon %>" style="width:100px" />
+        </div>
+        <div id="map-module" class="col-xs-12" style="height:200px;"></div>
+        </div>
+    </script>
+    
+    <!--  event triggers -->
+    <script type="text/javascript">
+        //event trigger for google map api loading
+        function mapApiLoaded() {
+            // Create the event.
+            var event = document.createEvent('Event');
+
+            // Define that the event name is 'build'.
+            event.initEvent('map-api-load', true, true);
+                document.dispatchEvent(event);
+        }
+    </script>
+    
+    <!-- Main JS File -->
+    <script src="./js/app.js"></script>
+    
+</body>
+
+</html>
