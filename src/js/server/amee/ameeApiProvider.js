@@ -70,7 +70,7 @@ var AmeeProvider = {
     },
     
     searchByCompanyName: function(q, success, error) {
-        var qs = '?company_name=' + encodeURIComponent(q);
+        var qs = '?min_score=0&company_name=' + encodeURIComponent(q);
         
         this.executeApiQuery(BUSINESS_PATH + qs, success, error);
     }
